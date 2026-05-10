@@ -40,8 +40,8 @@ The repo lays out cleanly: this README and the installers are at the top, the ac
 ### Linux & macOS
 
 ```sh
-git clone https://github.com/kanchansarkar/pothi
-cd pothi
+git clone https://github.com/DNV007/Pothi
+cd Pothi
 ./install.sh
 ```
 
