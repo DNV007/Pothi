@@ -1,0 +1,118 @@
+/* Pothi — premium scientific journal design tokens
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Type */
+  --font-serif: 'Source Serif 4', 'Charter', Georgia, serif;
+  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:  'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  /* Paper / surfaces — balanced ivory + cool editorial side rail */
+  --bg-paper:     #F7F4EC;
+  --bg-sidebar:   #EEF1F4;
+  --bg-card:      #FFFFFF;
+  --bg-tint:      #ECE7DA;
+  --bg-deep:      #DCD4C2;
+  --bg-rule:      #CFC5AE;
+  --bg-rule-soft: #E3DCCC;
+
+  /* Aliases the older Pothi code uses */
+  --bg-paper-soft: var(--bg-card);
+  --bg-elevated:   var(--bg-card);
+  --rule:          var(--bg-rule);
+  --rule-soft:     var(--bg-rule-soft);
+
+  /* Ink — near-black editorial navy, never pure black */
+  --ink-primary:   #111827;
+  --ink-secondary: #334155;
+  --ink-muted:     #647184;
+  --ink-disabled:  #A5ACB8;
+  --ink-inverse:   #FFFFFF;
+
+  /* Editorial accents */
+  --accent-signal:      #B3261E;
+  --accent-signal-soft: rgba(179, 38, 30, 0.10);
+  --accent-spring:      #1E7D6A;
+  --accent-spotlight:   #D6A72F;
+  --accent-spotlight-ink: #6B4A00;
+  --accent-deep:        #163B5C;
+  --accent-plum:        #65518C;
+  --accent-amber:       #C67819;
+
+  /* User-controlled accent (kept compatible with the older theme picker) */
+  --rh-accent:      var(--accent-signal);
+  --rh-accent-soft: var(--accent-signal-soft);
+
+  /* Per-type tones (used by row badges + detail eyebrow pill) */
+  --tone-article: #163B5C;
+  --tone-conf:    #1E7D6A;
+  --tone-book:    #65518C;
+  --tone-thesis:  #C67819;
+  --tone-tech:    #4A5A6E;
+  --tone-misc:    #6B7488;
+
+  /* Status (tied to accents) */
+  --status-success: var(--accent-spring);
+  --status-warning: var(--accent-amber);
+  --status-error:   var(--accent-signal);
+  --status-info:    var(--accent-deep);
+
+  /* Spacing — 4 px scale */
+  --s-1:  4px;  --s-2:  8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 20px;  --s-6: 24px;  --s-8: 32px; --s-12: 48px;
+
+  /* Radii */
+  --r-xs: 2px; --r-sm: 4px; --r-md: 6px; --r-lg: 10px; --r-pill: 999px;
+
+  /* Shadows — editorial; soft & subtle, never neon */
+  --shadow-card: 0 1px 0 rgba(17,24,39,0.05), 0 2px 10px rgba(17,24,39,0.06);
+  --shadow-pop:  0 2px 10px rgba(17,24,39,0.12), 0 20px 48px rgba(17,24,39,0.14);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+
+  /* Density */
+  --row-py:        12px;
+  --row-title-fs:  15px;
+  --row-meta-fs:   12.5px;
+  --hairline:      1px;
+
+  --row-title-font:  var(--font-serif);
+  --row-title-weight: 600;
+}
+
+/* Paper tones — switched via <html data-paper="…"> */
+[data-paper="warm"]  { --bg-paper: #F7F4EC; --bg-sidebar: #EEF1F4; --bg-tint: #ECE7DA; --bg-deep: #DCD4C2; --bg-rule: #CFC5AE; --bg-rule-soft: #E3DCCC; }
+[data-paper="light"] { --bg-paper: #FAFAF7; --bg-sidebar: #EEF3F7; --bg-tint: #F0EEE6; --bg-deep: #E7E1D3; --bg-rule: #D8D0BE; --bg-rule-soft: #E8E2D3; }
+[data-paper="sepia"] { --bg-paper: #EFE7D3; --bg-sidebar: #E8ECEF; --bg-tint: #E4D9BC; --bg-deep: #D4C59E; --bg-rule: #C4B48E; --bg-rule-soft: #D9CCAA; }
+[data-paper="ink"]   { --bg-paper: #E8EBF0; --bg-sidebar: #DDE4EA; --bg-tint: #D9DEE7; --bg-deep: #C8CFDB; --bg-rule: #B7BECC; --bg-rule-soft: #CCD2DE; }
+
+/* Density */
+[data-density="compact"]    { --row-py: 8px;  --row-title-fs: 14px;   --row-meta-fs: 12px;   }
+[data-density="comfortable"]{ --row-py: 12px; --row-title-fs: 15px;   --row-meta-fs: 12.5px; }
+[data-density="spacious"]   { --row-py: 18px; --row-title-fs: 16.5px; --row-meta-fs: 13px;   }
+
+/* Type system */
+[data-type="sans"]          { --row-title-font: var(--font-sans);  --row-title-weight: 600; }
+[data-type="serif-titles"]  { --row-title-font: var(--font-serif); --row-title-weight: 600; }
+[data-type="serif-heavy"]   { --row-title-font: var(--font-serif); --row-title-weight: 600; }
+
+/* Accent tone via [data-accent] (kept for compat with the older accent picker
+   but the editorial palette mostly uses --accent-signal directly) */
+[data-accent="brick"]  { --rh-accent: #C2362F; --rh-accent-soft: rgba(194, 54, 47, 0.14); }
+[data-accent="indigo"] { --rh-accent: #1F4E8A; --rh-accent-soft: rgba(31, 78, 138, 0.14); }
+[data-accent="forest"] { --rh-accent: #2B8C7C; --rh-accent-soft: rgba(43, 140, 124, 0.14); }
+[data-accent="plum"]   { --rh-accent: #6F4E93; --rh-accent-soft: rgba(111, 78, 147, 0.14); }
+[data-accent="ochre"]  { --rh-accent: #7E5E18; --rh-accent-soft: rgba(126, 94, 24, 0.14); }
+
+/* Honor user's motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
